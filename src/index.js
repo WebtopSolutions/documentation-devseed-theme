@@ -22,7 +22,11 @@ module.exports = function(
   comments: Array<Comment>,
   config: DocumentationConfig
 ) {
-  console.log(comments);
+  comments.sort((a, b) => (a.name > b.name) ? 1 : -1);
+  comments.forEach((c) => {
+    c.members.static.sort((a, b) => (a.name > b.name) ? 1 : -1);
+  })
+
   var linkerStack = new LinkerStack(
     config
   ).namespaceResolver(comments, function(namespace) {
