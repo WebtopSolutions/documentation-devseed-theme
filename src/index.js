@@ -22,6 +22,7 @@ module.exports = function(
   comments: Array<Comment>,
   config: DocumentationConfig
 ) {
+  console.log(comments);
   var linkerStack = new LinkerStack(
     config
   ).namespaceResolver(comments, function(namespace) {
